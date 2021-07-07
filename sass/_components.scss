@@ -1,0 +1,256 @@
+/* BUTTONS */
+
+.btn {
+  background-color: $light-color;
+  color: $primary-color;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+  transition: $general-transition;
+
+  @include media (medium) {
+    padding:.5rem 1rem;
+   
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: $light-color;
+  }
+
+  &-primary {
+    background-color: $primary-color;
+    color: $light-color;
+
+    &:hover {
+      background-color: $light-color;
+      color: $primary-color;
+    }
+  }
+}
+
+/* BADGES */
+
+.badge {
+  border: none;
+  padding: 0.2rem 2.4rem;
+  font-size: 1.6rem;
+  color: $light-color;
+  background-color: $primary-color;
+  margin: 5rem;
+  letter-spacing: 0.2rem;
+
+  @include media (medium) {
+    font-size: 1.2rem;
+  }
+
+  &-tech {
+    background-color: $comment-color;
+  }
+
+  &-game {
+    background-color: $date-color;
+  }
+}
+
+/* RATING */
+
+.rating {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 1rem;
+  left: 1rem;
+  background-color: $light-color;
+  z-index: 100;
+  opacity: 0;
+  line-height: 3rem;
+  font-size: 1.4rem;
+  font-family: $primary-font;
+  text-align: center;
+  transition: $general-transition;
+  border-radius: 50%;
+  color: $primary-color;
+}
+
+/* REVIEWS */
+
+.review {
+  padding: 2rem;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-left: 9rem;
+  border-left: 1px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
+  transform: skew(-28deg);
+
+
+  @include media (large) {
+    transform: skew(0deg);
+    border: none;
+    margin-left: 0;
+  }
+ 
+
+  & > * {
+    transform: skew(28deg);
+    
+    @include media (large) {
+      transform: skew(0deg);
+      margin-left: 0;
+    }
+
+  }
+
+  &-tags {
+    font-size: 1.5rem;
+    color: $light-color;
+    text-transform: uppercase;
+  }
+
+  &-text {
+    margin: 1rem 0;
+
+    
+  }
+
+  &-user {
+    display: flex;
+    align-items: center;
+
+
+    @include media (large) {
+      flex-direction: column;
+  }
+
+
+    img {
+      width: 8rem;
+      margin-right: 3rem;
+      border-radius: 50%;
+    }
+
+    &-detail {
+      font-family: $primary-font;
+      margin-right: 2rem;
+
+      
+  @include media (small) {
+   display: flex;
+  }
+
+      .review-user-name {
+        color: $primary-color;
+        
+        @include media (small) {
+          padding-right: 1rem;
+         
+             }
+      }
+
+      .review-user-date {
+        color: $date-color;
+      }
+    }
+
+    &-platform {
+        
+        :not(:last-child) {
+            color: $primary-color;
+
+            @include media (large) {
+              color: $secondary-color;
+            }
+        }
+
+        .fab {
+            margin: 0.7rem;
+        }
+    }
+
+    &-rating {
+        margin-left: auto;
+
+        @include media (large) {
+          margin-left: 0;
+        }
+
+        .checked {
+            color: $primary-color;
+
+        }
+    }
+  }
+}
+
+/* CARDS */
+
+.card {  
+  height: 40rem;
+  perspective: 1000px;
+
+  @include media (large) {
+    height: 35rem;
+  }
+
+  @include media (medium) {
+    height: 30rem;
+  }
+
+  @include media (small) {
+    height: 21rem;
+  }
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all 1s;
+  }
+
+  .card-front {
+    background-color: $primary-color;
+  }
+
+  .card-back {
+    background-color: $secondary-color;
+    transform: rotateY(180deg);
+    display: table;
+
+    &-content {
+      display: table-cell;
+      vertical-align: middle;
+
+      p {
+        font-size: 1.8rem;
+      }
+
+      a {
+        transition: $general-transition;
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  &:hover .card-front {
+    transform: scaleY(180deg);
+  }
+
+  &:hover .card-back {
+    transform: none;
+  }
+}
